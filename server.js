@@ -1,13 +1,13 @@
-/*******************************************************************
-*	Function Name	: webRTC signaling server
-*	Description 	: Server which handles the offer and answer request 
-********************************************************************/
-/* library for websocket */
+//WebRTC SIGNALING SERVER
+//HANDLING THE OFFER AND ANSWER BETWEEN PEER TO PEER
+
+
 var WebSocketServer = require('ws').Server;
 var wss = new WebSocketServer({ port: 3000 });
-/* to store the connection details */
+
+/* store connected user details */
 var users = {};
-/* to store the user list details */
+/* store the connected users list */
 var map = new Map();
 
 wss.on('listening', function () {
@@ -15,7 +15,7 @@ wss.on('listening', function () {
 });
 
 wss.on('connection', function (connection) {
-	/* Sucessful connection */
+	/* Connected successfully */
 	console.log("User has connected");
 	connection.on('message', function (message) {
 
